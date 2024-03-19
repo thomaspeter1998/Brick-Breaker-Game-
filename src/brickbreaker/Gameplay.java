@@ -12,10 +12,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private int score = 0;
     private int totalBricks = 21;
     private Timer timer;
-    private int delay = 8;
+    private int delay = 1;
     private int playerX = 310;
     private int ballPosX = 120;
-    private int ballPosY =350;
+    private int ballPosY = 350;
     private int ballXDir = -1;
     private  int ballYDir = -2;
     private MapGenerator map;
@@ -66,6 +66,16 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
             g.setFont(new Font("serif", Font.BOLD, 20));
             g.drawString("Press Enter to Restart", 230, 350);
+        }
+        if(totalBricks == 0) {
+            play = false;
+            ballXDir = 0;
+            ballYDir = 0;
+            g.setColor(Color.green);
+            g.setFont(new Font("serif", Font.BOLD, 30));
+            g.drawString("You have Won the Game", 190, 300);
+            g.setFont(new Font("serif", Font.BOLD, 20));
+            g.drawString("Press Enter to Play Again", 230, 350);
         }
 
         g.dispose();
